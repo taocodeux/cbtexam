@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT questions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-RBnYYy5ol34MFg6D32cDyFvSk2fazU3ULhtOy5MkZnLvAgKPlxToLZ4Z9ozG7+7w" crossorigin="anonymous"></script>
+    <style>
+        section{
+            padding: 30px;
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            padding: 15px;
+            background-color: white;
+            border: 3px solid rgb(52, 57, 140);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo{
+            width: 80px;
+            height: 80px;
+        }
+        span{
+            font-size: 100%;
+            font-weight: 700;
+        }
+        .user{
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            outline: 1px solid white;
+        }
+        #questions{
+            width: auto;
+            height: auto;
+            background-color: rgb(52, 57, 140);
+            color: white;
+            /* margin: 20px 30px; */
+        }
+        #time{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 2px solid rgb(52, 57, 140);
+            display: flex;
+            justify-content: center;
+            border-radius: 10px;
+            margin: auto;
+            color: black;
+            align-items: center;
+        }
+        #back{
+            display: none;
+            margin: 20px auto;
+        }
+        .button{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="cbtimages/SQI.webp" alt="" class="logo">
+        <span>SQI COLLEGE OF ICT COMPUTER BASED EXAMS</span>
+        <img src="cbtimages/59dc0f1e-1c1f-426c-84b6-11e2f75951bb.jpeg" alt="" class="user">
+    </nav>
+    <section>
+        <h3>Welcome, Taofikat</h3>
+        <div id="questions">
+        
+        </div>
+        <div class="button">
+            <button type="submit" class="btn btn-danger" id="prebtn" onclick="previousQue()">previous</button>
+            <button type="submit" class="btn btn-success" id="nextbtn" onclick="nextQue()">next</button>
+        </div>
+
+        <div id="time">
+            <span>25.00</span>
+        </div>
+        <button id="back" class="btn btn-danger" onclick="logOut()">LOG OUT</button>
+    </section>
+    <script src="cbt.js"></script>
+</body>
+</html>
