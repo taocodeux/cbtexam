@@ -9,6 +9,7 @@
     <style>
         body{
             width: 100%;
+            padding: 30px;
         }
         h1,h3{
             text-align: center;
@@ -20,6 +21,13 @@
             align-items: center;
             margin-top: 40px;
             font-size: 30px;
+        }
+        @media (max-width: 320px) {
+            div{
+                flex-direction: column;
+                justify-content: space-between;
+                font-size: 20px;
+            }
         }
     </style>
 </head>

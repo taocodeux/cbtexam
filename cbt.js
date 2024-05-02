@@ -35,17 +35,18 @@ let questions = [
 let storedQuestions = document.getElementById("questions")
 let index = 0 //current question index
 let updateQue = "" //current qustion html displayed
+let submitBtn = document.getElementById("submitbtn")
 
 //html content
 function updateQuestion() {
     let previousAnswer = showAnswers()
     updateQue = `<ul>
-                <p>${index + 1}. ${questions[index].myQuestion}</p>
-                 <li><input type="radio" name="option" value="${questions[index].myOptions[0]}" ${previousAnswer === questions[index].myOptions[0]? checked : " "}>${questions[index].myOptions[0]}</li>
-                 <li><input type="radio" name="option" value="${questions[index].myOptions[1]}" ${previousAnswer === questions[index].myOptions[1]? checked : " "}>${questions[index].myOptions[1]}</li>
-                 <li><input type="radio" name="option" value="${questions[index].myOptions[2]}" ${previousAnswer === questions[index].myOptions[2]? checked : " "}>${questions[index].myOptions[2]}</li>
-                 <li><input type="radio" name="option" value="${questions[index].myOptions[3]}" ${previousAnswer === questions[index].myOptions[3]? checked : " "}>${questions[index].myOptions[3]}</li>
-             </ul>`
+                    <p>${index + 1}. ${questions[index].myQuestion}</p>
+                    <li><input type="radio" name="option" value="${questions[index].myOptions[0]}" ${previousAnswer === questions[index].myOptions[0] ? 'checked' : ''}>${questions[index].myOptions[0]}</li>
+                    <li><input type="radio" name="option" value="${questions[index].myOptions[1]}" ${previousAnswer === questions[index].myOptions[1] ? 'checked' : ''}>${questions[index].myOptions[1]}</li>
+                    <li><input type="radio" name="option" value="${questions[index].myOptions[2]}" ${previousAnswer === questions[index].myOptions[2] ? 'checked' : ''}>${questions[index].myOptions[2]}</li>
+                    <li><input type="radio" name="option" value="${questions[index].myOptions[3]}" ${previousAnswer === questions[index].myOptions[3] ? 'checked' : ''}>${questions[index].myOptions[3]}</li>
+                </ul>`
 
     storedQuestions.innerHTML = updateQue
 }
@@ -61,13 +62,17 @@ function nextQue() {
     if (index < questions.length) { //if all questions are answered, display submit
         updateQuestion()
     } else {
-        storedQuestions.innerHTML = "<button onclick='submitExam()'>Submit</button>"
+        submitBtn.innerHTML = "<button onclick='submitExam()' class= 'btn btn-success'>Submit</button>"
     }
 }
 updateQuestion()
 
+function submitExam(){
+        alert("answers submitted successfully!")
+        logOut()
+}
 //save answers to local storage
-function save(){
+function save(answer){
     localStorage.setItem(`answer${index}`, answer)
 }
 //show saved answer
@@ -102,4 +107,7 @@ function previousQue(){
     
     function logOut(){
         window.location.href  ="index.html"
+    }
+    window.onload = function() {
+        localStorage.clear()
     }
